@@ -5,7 +5,6 @@ author        = "Mitsuru Kanenobu"
 description   = "random Japanese name and address generator"
 license       = "MIT"
 srcDir        = "src"
-skipDirs      = @["lib"]
 
 
 

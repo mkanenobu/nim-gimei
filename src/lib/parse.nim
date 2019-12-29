@@ -7,14 +7,14 @@ var
 
 block:
   let
-    f: File = open("../data/addresses.yml", FileMode.fmRead)
+    f: File = open("data/addresses.yml", FileMode.fmRead)
     yaml: string = f.readAll
   defer: f.close
   addressesJson = loadToJson(yaml)[0]["addresses"]
 
 block:
   let
-    f: File = open("../data/names.yml", FileMode.fmRead)
+    f: File = open("data/names.yml", FileMode.fmRead)
     yaml: string = f.readAll
   defer: f.close
   namesJson = loadToJson(yaml)[0]
