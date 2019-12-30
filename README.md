@@ -1,9 +1,9 @@
-# nim-gimei
+# nim-gimei (WIP)
 random Japanese name and address generator
 
 ## TODO
 
-- [ ] Fix IOError (parsing yaml file in evaluate time)
+- [ ] Fix IOError (find data path via module)
 - [ ] Randomize
 - [ ] Write test
 - [ ] Write document

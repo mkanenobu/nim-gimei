@@ -1,8 +1,6 @@
 import yaml, yaml/parser, yaml/tojson
-import json, os
+import json
 
-echo existsFile("data/names.yml")
-echo existsFile("data/addresses.yml")
 let
   addressesYaml: string = readFile("data/addresses.yml")
   addressesJson*: JsonNode = loadToJson(addressesYaml)[0]["addresses"]
