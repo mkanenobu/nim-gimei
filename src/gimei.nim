@@ -1,6 +1,6 @@
-import lib/base
-import lib/name
-import lib/address
+import gimei/base
+import gimei/name
+import gimei/address
 
 # Name
 proc gimeiFirstName*(gender: Gender = Both): Yomi = getFirstName(gender)
