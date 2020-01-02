@@ -39,6 +39,8 @@ suite "gimei addresses":
   test "addresses `$`":
     let address = gimeiAddress()
     check address.Kanji == $address
+    let prefecture = gimeiPrefecture()
+    check prefecture.Kanji == $prefecture
 
   # Randomize
   test "Returns same value with same seed":

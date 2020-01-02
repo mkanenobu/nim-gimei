@@ -58,6 +58,8 @@ suite "gimei names":
   test "names `$`":
     let gimei = gimeiName()
     check gimei.Kanji == $gimei
+    let firstName = gimeiFirstName()
+    check firstName.Kanji == $firstName
 
   # Randomize
   test "Returns same value with same seed":
