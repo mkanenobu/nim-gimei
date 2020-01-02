@@ -18,6 +18,7 @@ jobs:
       - run: nimble -v
       - run: nimble check
       - run: nimble test
+      - run: nimble check_style
       - run: nimble document
       - run: nimble install
       - store_artifacts:

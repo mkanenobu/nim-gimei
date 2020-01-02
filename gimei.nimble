@@ -33,3 +33,9 @@ task document, "update document":
   except:
     rmDir "htmldoc"
 
+task check_style, "check coding style":
+  proc checkStyle(fileName: string) =
+    exec("nim c --compileOnly:on --hints:off --styleCheck:error " & fileName)
+
+  checkStyle("src/gimei.nim")
+

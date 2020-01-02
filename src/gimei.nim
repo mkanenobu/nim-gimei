@@ -7,7 +7,7 @@ type
     ## Gender.Male or Gender.Female
     name.Gender
 
-method `$`*(yomi: Yomi): string {.base.} = yomi.Kanji
+method `$`*(yomi: Yomi): string {.base.} = yomi.kanji
 
 # Name
 proc gimeiFirstName*(gender: Gender = Both): Yomi = getFirstName(gender)
@@ -15,12 +15,12 @@ proc gimeiLastName*(): Yomi = getLastName()
 proc gimeiName*(gender: Gender = Both, sep: string or char = ' '): name.Gimei =
   name.gimeiName(gender, sep)
 
-method `$`*(gimei: name.Gimei): string = gimei.Kanji
+method `$`*(gimei: Gimei): string = gimei.kanji
 
 # Address
 proc gimeiPrefecture*(): Yomi = getPrefecture()
 proc gimeiCity*(): Yomi = getCity()
 proc gimeiTown*(): Yomi = getTown()
-proc gimeiAddress*(): address.Address = address.gimeiAddress()
+proc gimeiAddress*(): Address = address.gimeiAddress()
 
-method `$`*(address: address.Address): string = address.Kanji
+method `$`*(address: Address): string = address.kanji

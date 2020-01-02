@@ -13,25 +13,25 @@ nimble install gimei
 
 `Yomi` properties
 
-- Kanji
-- Hiragana
-- Katakana
+- kanji
+- hiragana
+- katakana
 
 ### `gimeiName` returns `Gimei` type
 
 `Gimei` properties
 
-- Kanji
-- Hiragana
-- Katakana
-- FirstName
-  - Kanji
-  - Hiragana
-  - Katakana
+- kanji
+- hiragana
+- katakana
+- firstName
+  - kanji
+  - hiragana
+  - katakana
 - LastName
-  - Kanji
-  - Hiragana
-  - Katakana
+  - kanji
+  - hiragana
+  - katakana
 
 `gimeiName` and `gimeiFirstName` take `Gender` argument(`Gender.Male` or `Gender.Female`)
 
@@ -39,21 +39,21 @@ nimble install gimei
 
 `Address` properties
 
-- Kanji
-- Hiragana
-- Katakana
-- Prefecture
-  - Kanji
-  - Hiragana
-  - Katakana
-- City
-  - Kanji
-  - Hiragana
-  - Katakana
-- Town
-  - Kanji
-  - Hiragana
-  - Katakana
+- kanji
+- hiragana
+- katakana
+- prefecture
+  - kanji
+  - hiragana
+  - katakana
+- city
+  - kanji
+  - hiragana
+  - katakana
+- town
+  - kanji
+  - hiragana
+  - katakana
 
 `$` (stringify) returns Kanji string
 

@@ -2,15 +2,15 @@ import json
 
 type
   Yomi* = ref object of RootObj
-    Kanji*: string
-    Hiragana*: string
-    Katakana*: string
+    kanji*: string
+    hiragana*: string
+    katakana*: string
 
 func nodeToYomi*(node: JsonNode): Yomi =
   let arr: seq[JsonNode] = node.elems
   Yomi(
-    Kanji: arr[0].getStr,
-    Hiragana: arr[1].getStr,
-    Katakana: arr[2].getStr
+    kanji: arr[0].getStr,
+    hiragana: arr[1].getStr,
+    katakana: arr[2].getStr
   )
 

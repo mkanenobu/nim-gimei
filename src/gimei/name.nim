@@ -8,8 +8,8 @@ type
     Female,
     Both
   Gimei* = ref object of Yomi
-    LastName*: Yomi
-    FirstName*: Yomi
+    lastName*: Yomi
+    firstName*: Yomi
 
 let
   firstNames = namesJson["first_name"]
@@ -21,9 +21,9 @@ let
 func getFullname(first, last: Yomi, sep: string or char): Yomi =
   let separater: string = $sep
   Yomi(
-    Kanji: [last.Kanji, first.Kanji].join(separater),
-    Hiragana: [last.Hiragana, first.Hiragana].join(separater),
-    Katakana: [last.Katakana, first.Katakana].join(separater),
+    kanji: [last.kanji, first.kanji].join(separater),
+    hiragana: [last.hiragana, first.hiragana].join(separater),
+    katakana: [last.katakana, first.katakana].join(separater),
   )
 
 proc getFirstName*(gender: Gender): Yomi =
@@ -37,17 +37,16 @@ proc getFirstName*(gender: Gender): Yomi =
 proc getLastName*(): Yomi = lastNames.sample.nodeToYomi
 
 proc gimeiName*(gender: Gender, sep: string or char): Gimei =
-  ## Returns string, convert to Rune yourself if needed
   let
     lastName = getLastName()
     firstname = getFirstName(gender)
     fullName = getFullname(firstName, lastName, sep)
 
   Gimei(
-    LastName: lastName,
-    FirstName: firstName,
-    Kanji: fullName.Kanji,
-    Hiragana: fullName.Hiragana,
-    Katakana: fullName.Katakana,
+    lastName: lastName,
+    firstName: firstName,
+    kanji: fullName.kanji,
+    hiragana: fullName.hiragana,
+    katakana: fullName.katakana,
   )
 
