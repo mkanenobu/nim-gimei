@@ -1,7 +1,7 @@
 import json
 
 type
-  Yomi* = object of RootObj
+  Yomi* = ref object of RootObj
     Kanji*: string
     Hiragana*: string
     Katakana*: string
