@@ -3,7 +3,7 @@ random Japanese name and address generator
 
 ## TODO
 
-- [ ] Fix IOError (find data path via module)
-- [ ] Randomize
-- [ ] Write test
+- [x] Fix IOError (find data path via module) -> create `asset.nim`
+- [x] Randomize -> User do
+- [x] Write test
 - [ ] Write document
