@@ -10,12 +10,13 @@ jobs:
       - restore_cache:
           key: nim-0000
       - run: nim -v
+      - run: nimble update -y
       - save_cache:
           key: nim-0000
           paths:
             - .nimble
       - run: nimble check
-      - run: yes | nimble test
+      - run: nimble test
       - store_artifacts:
           path: test-reports/
           destination: tr1
