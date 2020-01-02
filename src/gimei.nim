@@ -2,9 +2,14 @@ import gimei/base
 import gimei/name
 import gimei/address
 
-type Gender* = name.Gender
+type
+  Gender* = ## \
+    ## Gender.Male or Gender.Female
+    name.Gender
 
-proc `$`*(yomi: base.Yomi): string = yomi.Kanji
+proc `$`*(yomi: base.Yomi): string =
+  ## `$` returns Kanji string
+  yomi.Kanji
 
 # Name
 proc gimeiFirstName*(gender: Gender = Both): Yomi = getFirstName(gender)
