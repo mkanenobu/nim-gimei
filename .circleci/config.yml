@@ -15,7 +15,7 @@ jobs:
           paths:
             - .nimble
       - run: nimble check
-      - run: nimble test
+      - run: yes | nimble test
       - store_artifacts:
           path: test-reports/
           destination: tr1
