@@ -3,14 +3,10 @@ import asset
 import base
 
 type
-  Address* = ref object of RootObj
+  Address* = ref object of Yomi
     Prefecture*: Yomi
     City*: Yomi
     Town*: Yomi
-    # Same as `Yomi`
-    Kanji*: string
-    Hiragana*: string
-    Katakana*: string
 
 let
   prefectures: seq[JsonNode] = addressesJson["prefecture"].elems

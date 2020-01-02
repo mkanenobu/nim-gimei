@@ -7,13 +7,9 @@ type
     Male,
     Female,
     Both
-  Gimei* = ref object of RootObj
+  Gimei* = ref object of Yomi
     LastName*: Yomi
     FirstName*: Yomi
-    # Same as `Yomi`
-    Kanji*: string
-    Hiragana*: string
-    Katakana*: string
 
 let
   firstNames = namesJson["first_name"]
