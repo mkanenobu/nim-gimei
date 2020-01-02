@@ -34,8 +34,12 @@ task document, "update document":
     rmDir "htmldoc"
 
 task check_style, "check coding style":
+  let suppressUnusedHints = "--hint[CC]:off --hint[Processing]:off --hint[Conf]:off"
   proc checkStyle(fileName: string) =
-    exec("nim c --compileOnly:on --hints:off --styleCheck:error " & fileName)
+    try:
+      exec("nim c --compileOnly:on " & suppressUnusedHints & " --styleCheck:error " & fileName)
+    except:
+      # Supress error message
+      discard
 
   checkStyle("src/gimei.nim")
-
