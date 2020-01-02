@@ -5,8 +5,8 @@ import base
 type
   Address* = ref object of RootObj
     Prefecture*: Yomi
-    Town*: Yomi
     City*: Yomi
+    Town*: Yomi
     # Same as `Yomi`
     Kanji*: string
     Hiragana*: string
@@ -14,14 +14,14 @@ type
 
 let
   prefectures: seq[JsonNode] = addressesJson["prefecture"].elems
-  towns: seq[JsonNode] = addressesJson["town"].elems
   cities: seq[JsonNode] = addressesJson["city"].elems
+  towns: seq[JsonNode] = addressesJson["town"].elems
 
 proc concat(prefecture, town, city: Yomi): Yomi =
   Yomi(
-    Kanji: prefecture.Kanji & town.Kanji & city.Kanji,
-    Hiragana: prefecture.Hiragana & town.Hiragana & city.Hiragana,
-    Katakana: prefecture.Katakana & town.Katakana & city.Katakana,
+    Kanji: prefecture.Kanji & city.Kanji & town.Kanji,
+    Hiragana: prefecture.Hiragana & city.Hiragana & town.Hiragana,
+    Katakana: prefecture.Katakana & city.Katakana & town.Katakana,
   )
 
 proc getPrefecture*(): Yomi = prefectures.sample.nodeToYomi
@@ -31,14 +31,14 @@ proc getCity*(): Yomi = cities.sample.nodeToYomi
 proc gimeiAddress*(): Address =
   let
     prefecture = getPrefecture()
-    town = getTown()
     city = getCity()
+    town = getTown()
     concated = concat(prefecture, town, city)
 
   Address(
     Prefecture: prefecture,
-    Town: town,
     City: city,
+    Town: town,
     Kanji: concated.Kanji,
     Hiragana: concated.Hiragana,
     Katakana: concated.Katakana,

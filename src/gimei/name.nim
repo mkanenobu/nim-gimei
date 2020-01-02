@@ -22,11 +22,12 @@ let
   firstNamesBoth = concat(firstNamesMale, firstNamesFemale)
   lastNames: seq[JsonNode] = namesJson["last_name"].elems
 
-func getFullname(first, last: Yomi, joinString: string): Yomi =
+func getFullname(first, last: Yomi, sep: string or char): Yomi =
+  let separater: string = $sep
   Yomi(
-    Kanji: [first.Kanji, last.Kanji].join(joinString),
-    Hiragana: [first.Hiragana, last.Hiragana].join(joinString),
-    Katakana: [first.Katakana, last.Katakana].join(joinString),
+    Kanji: [last.Kanji, first.Kanji].join(separater),
+    Hiragana: [last.Hiragana, first.Hiragana].join(separater),
+    Katakana: [last.Katakana, first.Katakana].join(separater),
   )
 
 proc getFirstName*(gender: Gender): Yomi =
@@ -39,12 +40,12 @@ proc getFirstName*(gender: Gender): Yomi =
 
 proc getLastName*(): Yomi = lastNames.sample.nodeToYomi
 
-proc gimeiName*(gender: Gender, joinString: string): Gimei =
+proc gimeiName*(gender: Gender, sep: string or char): Gimei =
   ## Returns string, convert to Rune yourself if needed
   let
     lastName = getLastName()
     firstname = getFirstName(gender)
-    fullName = getFullname(firstName, lastName, joinString)
+    fullName = getFullname(firstName, lastName, sep)
 
   Gimei(
     LastName: lastName,
