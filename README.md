@@ -4,7 +4,7 @@ random Japanese name and address generator
 ## Installtion
 
 ```sh
-nimble install https://github.com/mkanenobu/nim-gimei
+nimble install gimei
 ```
 
 ## Types
