@@ -1,0 +1,15 @@
+name: test
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: nimble test
+        uses: docker://nimlang/nim:1.0.4-alpine
+        with:
+          args: nimble test
+      
