@@ -1,12 +1,16 @@
 import json, random
-import base, parse
+import asset
+import base
 
 type
   Address* = ref object of RootObj
-    address*: Yomi
     Prefecture*: Yomi
     Town*: Yomi
     City*: Yomi
+    # Same as `Yomi`
+    Kanji*: string
+    Hiragana*: string
+    Katakana*: string
 
 let
   prefectures: seq[JsonNode] = addressesJson["prefecture"].elems
@@ -29,11 +33,14 @@ proc gimeiAddress*(): Address =
     prefecture = getPrefecture()
     town = getTown()
     city = getCity()
+    concated = concat(prefecture, town, city)
 
   Address(
-    address: concat(prefecture, town, city),
     Prefecture: prefecture,
     Town: town,
     City: city,
+    Kanji: concated.Kanji,
+    Hiragana: concated.Hiragana,
+    Katakana: concated.Katakana,
   )
 
