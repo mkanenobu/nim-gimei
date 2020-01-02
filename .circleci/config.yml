@@ -9,14 +9,16 @@ jobs:
       # Reuse cached directories
       - restore_cache:
           key: nim-0000
-      - run: nim -v
       - run: nimble update -y
       - save_cache:
           key: nim-0000
           paths:
             - .nimble
+      - run: nim -v
+      - run: nimble -v
       - run: nimble check
       - run: nimble test
+      - run: nimble install
       - store_artifacts:
           path: test-reports/
           destination: tr1
