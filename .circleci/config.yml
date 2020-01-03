@@ -26,10 +26,10 @@ jobs:
       - run: nimble document
       - run: nimble install
       - store_artifacts:
-        path: test-reports/
-        destination: tr1
+          path: test-reports/
+          destination: tr1
       - store_test_results:
-        path: test-reports/
+          path: test-reports/
 
   # use published nimble pkg
   nimble-test:
@@ -51,10 +51,10 @@ jobs:
       - run: export TEST_MODE="nimble_test"
       - run: nimble test
       - store_artifacts:
-        path: test-reports/
-        destination: tr1
+          path: test-reports/
+          destination: tr2
       - store_test_results:
-        path: test-reports/
+          path: test-reports/
 
 workflows:
   version: 2
