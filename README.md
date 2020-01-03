@@ -1,5 +1,8 @@
 # nim-gimei
+
 random Japanese name and address generator
+
+[![CircleCI](https://circleci.com/gh/mkanenobu/nim-gimei.svg?style=svg)](https://circleci.com/gh/mkanenobu/nim-gimei)
 
 ## Installtion
 
