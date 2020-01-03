@@ -26,35 +26,8 @@ jobs:
       - store_test_results:
           path: test-reports/
 
-  # use published nimble pkg
-  nimble-test:
-    docker:
-      - image: nimlang/nim:1.0.4-alpine
-    steps:
-      - checkout
-      - run: echo 'export PATH=~/.nimble/bin:$PATH' >> $BASH_ENV
-      # Reuse cached directories
-      - restore_cache:
-          key: nim-0001
-      - run: nimble update -y
-      - run: nimble search gimei
-      - run: nimble install gimei
-      - save_cache:
-          key: nim-0001
-          paths:
-            - .nimble
-      - run: nim -v
-      - run: nimble -v
-      - run: TEST_MODE="use_published" nimble test
-      - store_artifacts:
-          path: test-reports/
-          destination: tr2
-      - store_test_results:
-          path: test-reports/
-
 workflows:
   version: 2
   run-test:
     jobs:
       - test
-      - nimble-test
