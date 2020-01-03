@@ -11,10 +11,10 @@ skipDirs      = @["test", "data"]
 # Dependencies
 
 requires "nim >= 1.0.2"
-requires "yaml >= 0.12.0"
 
 # Tasks
 task update_asset, "update asset file":
+  requires "yaml >= 0.12.0"
   try:
     exec "nim c -r update_asset.nim"
   finally:
