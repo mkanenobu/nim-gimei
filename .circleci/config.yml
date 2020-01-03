@@ -48,8 +48,7 @@ jobs:
             - .nimble
       - run: nim -v
       - run: nimble -v
-      - run: export TEST_MODE="nimble_test"
-      - run: nimble test
+      - run: TEST_MODE="use_published" nimble test
       - store_artifacts:
           path: test-reports/
           destination: tr2

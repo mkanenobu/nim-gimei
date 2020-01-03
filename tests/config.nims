@@ -1,8 +1,6 @@
-# "normal", "nimble_test"
-# when nimble_test, use global module
-let mode = getEnv("TEST_MODE", "normal")
+let usePublished = existsEnv("TEST_MODE")
 
-if mode == "normal":
+if not usePublished:
   switch("path", "$projectDir/../src")
 
 switch("hints", "off")

@@ -14,9 +14,10 @@ requires "nim >= 1.0.2"
 
 # Tasks
 task update_asset, "update asset file":
+  ## for develop
   requires "yaml >= 0.12.0"
   try:
-    exec "nim c -r update_asset.nim"
+    exec "nim c -r tasks/update_asset.nim"
   finally:
     rmFile "update_asset"
 
@@ -41,5 +42,4 @@ task check_style, "check coding style":
     except:
       # Supress error message
       discard
-
   checkStyle("src/gimei.nim")
